@@ -1,11 +1,10 @@
-
-
 public class Userid{
     private String Name;
     private int Age;
     private int PhoneNumber;
     private String email;
     private String Password;
+    private static int userId = 1;
 
     public Userid(String NameIn , int AgeIn , int PhoneNumberIn , String emailIn, String PasswordIn){
         Name = NameIn;
@@ -13,6 +12,7 @@ public class Userid{
         PhoneNumber = PhoneNumberIn;
         email= emailIn;
         Password = PasswordIn;
+        userId++;
     }
     public String getName(){
         return Name;
@@ -30,7 +30,6 @@ public class Userid{
         return Password;
     }
 
-
     public String toString() {
         return "UserId{" +
                 "Name='" + Name + '\'' +
@@ -38,6 +37,7 @@ public class Userid{
                 ", PhoneNumber=" + PhoneNumber +
                 ", email='" + email + '\'' +
                 ", Password='" + Password + '\'' +
+                ", UserID='"  + userId+'\'' + 
                 '}';
     }
 
