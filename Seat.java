@@ -76,11 +76,19 @@ public class Seat {
 		holder = customerId;
 	}
 	
-	public String toString() {
+	public String getSeatInfo() {
 		String holderText = "-";
 		if (holder!=0) {
 			holderText = Integer.toString(holder);
 		}
 		return "Seat: "+SEAT_ID+"\tType: "+seatType+"\tHolder: "+holderText+"\tPrice: "+getTotalPrice();
+	}
+	
+	public String getSeatShow() {
+		return "Screen: "+screenId+"\tDate: "+DatePrint.getDateString(date)+"\tTime: "+DatePrint.getTimeString(time);
+	}
+	
+	public String toString() {
+		return getSeatInfo()+"\n"+getSeatShow();
 	}
 }

@@ -2,25 +2,25 @@ package project.xyz;
 
 import java.util.*;
 import java.time.*;
-import java.time.format.DateTimeFormatter;
 
 public class Showtime {
-	private static int showtimeId = 1000;
+	private static int showtimeId = 1001;
+	private final int SHOWTIME_ID;
 	private LocalDate date;
 	private LocalTime time;
 	private ArrayList<Screen> screens;
-	private ArrayList<String> movies;
+	private ArrayList<Movie> movies;
 	
 	public Showtime(LocalDate date, LocalTime time) {
+		SHOWTIME_ID = showtimeId++;
 		this.date = date;
 		this.time = time;
 		screens = new ArrayList<>();
 		movies = new ArrayList<>();
-		showtimeId++;
 	}
 	
 	public int getShowtimeId() {
-		return showtimeId;
+		return SHOWTIME_ID;
 	}
 	
 	public LocalDate getDate() {
@@ -31,7 +31,15 @@ public class Showtime {
 		return time;
 	}
 	
-	public void addShow(Screen screen, String movie) {
+	public ArrayList<Screen> getScreens() {
+		return screens;
+	}
+	
+	public ArrayList<Movie> getMovies() {
+		return movies;
+	}
+	
+	public void addShow(Screen screen, Movie movie) {
 		screen.setDate(date);
 		screen.setTime(time);
 		screens.add(screen);
@@ -39,16 +47,14 @@ public class Showtime {
 	}
 	
 	public String toString() {
-		DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("MM dd, yyyy");
-		DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("hh:mm a");
-		String result = "Date: "+date.format(dateFormatter)+"\tTime: "+time.format(timeFormatter);
+		String result = "ID: "+SHOWTIME_ID+"\tDate: "+DatePrint.getDateString(date)+"\tTime: "+DatePrint.getTimeString(time);
 		return result;
 	}
 	
 	public String printProgram() {
 		String result = toString()+"\n";
 		for (int i=0; i<screens.size(); i++) {
-			result += screens.get(i).toString()+"\tMovie: "+movies.get(i)+"\n";
+			result += screens.get(i).toString()+"\tMovie: "+movies.get(i).getTitle()+"\n";
 		}
 		return result;
 	}

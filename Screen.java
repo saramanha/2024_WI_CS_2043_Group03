@@ -3,7 +3,7 @@ package project.xyz;
 import java.time.*;
 
 public class Screen {
-	private int screenId;
+	private final int SCREEN_ID;
 	private String screenType;
 	private double basePrice;
 	private Seat[] layout;
@@ -11,7 +11,7 @@ public class Screen {
 	private LocalTime time;
 	
 	public Screen (int screenId, String type, double price, Seat[] layout) {
-		this.screenId = screenId;
+		SCREEN_ID = screenId;
 		this.screenType = type;
 		this.basePrice = price;
 		this.layout = deepCopyArray(layout);
@@ -20,7 +20,7 @@ public class Screen {
 	}
 	
 	public int getScreenId() {
-		return screenId;
+		return SCREEN_ID;
 	}
 	
 	public String getScreenType() {
@@ -51,22 +51,22 @@ public class Screen {
 		Seat[] output = new Seat[layout.length];
 		for (int i=0; i<layout.length; i++) {
 			output[i] = new Seat(layout[i].getSeatId(), layout[i].getSeatType(), layout[i].getAdditionalPrice());
-			output[i].setScreen(screenId, screenType, basePrice);
+			output[i].setScreen(SCREEN_ID, screenType, basePrice);
 			output[i].setDateTime(date, time);
 		}
 		return output;
 	}
 
-	public String printAllSeat() {
-		String result = toString()+"\n";
-		for (int i=0; i<layout.length; i++) {
-			result += layout[i].toString()+"\n";
-		}
+	public String toString() {
+		String result = "Screen: "+SCREEN_ID+"\tType: "+screenType+"\tCapacity: "+layout.length;
 		return result;
 	}
 	
-	public String toString() {
-		String result = "Screen: "+screenId+"\tType: "+screenType+"\tCapacity: "+layout.length;
+	public String printAllSeat() {
+		String result = toString()+"\n";
+		for (int i=0; i<layout.length; i++) {
+			result += layout[i].getSeatInfo()+"\n";
+		}
 		return result;
 	}
 }
