@@ -40,8 +40,10 @@ public class Showtime {
 	}
 	
 	public void addShow(Screen screen, Movie movie) {
-		screen.setDate(date);
-		screen.setTime(time);
+		Seat[] seats = screen.getSeats();
+		for (int i=0; i<seats.length; i++) {
+			seats[i].setDateTime(date, time);
+		}
 		screens.add(screen);
 		movies.add(movie);
 	}

@@ -15,8 +15,6 @@ public class Screen {
 		this.screenType = type;
 		this.basePrice = price;
 		this.layout = deepCopyArray(layout);
-		date = null;
-		time = null;
 	}
 	
 	public int getScreenId() {
@@ -39,12 +37,8 @@ public class Screen {
 		return time;
 	}
 	
-	protected void setDate(LocalDate date) {
-		this.date = date;
-	}
-	
-	protected void setTime(LocalTime time) {
-		this.time = time;
+	public Seat[] getSeats() {
+		return layout;
 	}
 	
 	public Seat[] deepCopyArray(Seat[] layout) {
@@ -52,7 +46,6 @@ public class Screen {
 		for (int i=0; i<layout.length; i++) {
 			output[i] = new Seat(layout[i].getSeatId(), layout[i].getSeatType(), layout[i].getAdditionalPrice());
 			output[i].setScreen(SCREEN_ID, screenType, basePrice);
-			output[i].setDateTime(date, time);
 		}
 		return output;
 	}
