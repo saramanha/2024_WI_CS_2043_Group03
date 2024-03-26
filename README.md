@@ -19,7 +19,7 @@ that the following lines [Seat ID, Seat Type, Additional Price].
 2. __schedule.csv__: The file contains the showtime information in the first row 
 [Date(yyyy-MM-dd), Time(HH:mm), Number of Screen showed in this showtime] and information 
 of all shows in each showtime show that the following lines [Screen ID, Movie Title].
-3. __movie_list.csv_: The files contains all movies information.
+3. __movie_list.csv__: The files contains all movies information.
 
 #### Output
 1. __user_list.dat__: The binary file contains the user objects.
