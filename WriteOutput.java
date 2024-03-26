@@ -8,7 +8,7 @@ public class WriteOutput {
 	//The directory of the input files. -Require adjustment-
 	private static String directory = "/home1/ugrads/t9mju/CS2043/backup/";
 	//The end of file index for user_list.dat
-	private static User dummy = new User("dummy","dummy","dummy");
+	private static User dummy = new User("dummy","dummy");
 
 	public static void createUserFile() throws IOException {
 		String filePath = directory+"user_list.dat";

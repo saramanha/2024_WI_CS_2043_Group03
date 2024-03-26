@@ -7,16 +7,14 @@ public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private static int userId = 10;
 	private final int USER_ID;
-	private String userName;
-	private String password;
 	private String email;
+	private String password;
 	private ArrayList<Ticket> inventory;
 	
-	public User(String userName, String password, String email) {
+	public User(String email, String password) {
 		USER_ID = userId++;
-		this.userName = userName;
-		this.password = password;
 		this.email = email;
+		this.password = password;
 		inventory = new ArrayList<>();
 	}
 	
@@ -24,16 +22,8 @@ public class User implements Serializable {
 		return USER_ID;
 	}
 	
-	public String getUserName() {
-		return userName;
-	}
-	
 	public String getEmail() {
 		return email;
-	}
-	
-	public void setUserName(String userName) {
-		this.userName = userName;
 	}
 	
 	public void setPassword(String password) {
@@ -87,6 +77,6 @@ public class User implements Serializable {
 	}
 	
 	public String toString() {
-		return "ID: "+USER_ID+"\tUser Name: "+userName+"\tEmail: "+email;
+		return "ID: "+USER_ID+"\tEmail: "+email;
 	}
 }

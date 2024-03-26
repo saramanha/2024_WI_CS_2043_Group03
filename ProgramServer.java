@@ -41,13 +41,12 @@ public class ProgramServer {
 						}
 					}
 				}
-				System.out.print("Enter username: ");
-				String username = scanner.next();
 				System.out.print("Enter password: ");
 				String password = scanner.next();
-				User user = new User(username, password, email);
+				User user = new User(email, password);
 				try {
 					WriteOutput.addUser(user);
+					System.out.println("Account has been created.\n");
 				}
 				catch (IOException e) {
 					System.out.println(e.getMessage());
@@ -57,8 +56,8 @@ public class ProgramServer {
 				}
 			}
 			//Login
-			System.out.print("Username: ");
-			String user = scanner.next();
+			System.out.print("Email: ");
+			String email = scanner.next();
 			System.out.print("Password: ");
 			String pass = scanner.next();
 			try {
@@ -71,13 +70,13 @@ public class ProgramServer {
 				System.out.println(e.getMessage());
 			}
 			for (int i=0; i<users.size(); i++) {
-				if (users.get(i).getUserName().equals(user)) {
+				if (users.get(i).getEmail().equals(email)) {
 					inUse = users.get(i);
 					break;
 				}
 			}
 			if (inUse.equals(null)) {
-				System.out.println("Invalid username. Please try  again.");
+				System.out.println("Invalid email. Please try  again.");
 			}
 			else {
 				if (inUse.checkPassword(pass)) {
@@ -171,9 +170,9 @@ public class ProgramServer {
 		//Check booked seat in the screen
 		System.out.println(selectedScreen.printAllSeat());
 		
-		/*
+		
 		//Server part. ref Lab6 CS1083 fall2023: Rick Wightman(author), December 2022.
-		ServerSocket ss = null;
+		/*ServerSocket ss = null;
 		int port = 61340;
 		String host = "localhost";
 		try {
@@ -201,6 +200,7 @@ public class ProgramServer {
 		while(true) {
 			try {
 				Socket s=ss.accept();
+				ObjectInputStream ois = new ObjectInputStream(s.getInputStream());
 			}
 			catch(Exception e) {
 				System.out.print(e);
