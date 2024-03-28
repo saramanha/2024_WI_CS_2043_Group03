@@ -40,6 +40,13 @@ public class Ticket {
 		cancel = true;
 	}
 	
+	public String printDetail() {
+		String output = "\tMovie: "+MOVIE.getTitle()+"\n\tDate: "+DatePrint.getDateString(SEAT.getDate())+
+				"\tTime: "+DatePrint.getTimeString(SEAT.getTime())+"\n\tScreen: "+SEAT.getScreenId()+
+				"\n\tSeat: "+SEAT.getSeatId()+"\n\tDetail: "+MOVIE.getDescription();
+		return output;
+	}
+	
 	public String toString() {
 		return "ID: "+TICKET_ID+"\tUser: "+USER_ID+"\tMovie: "+MOVIE.getTitle()+"\nSeat: "+SEAT.getSeatId()+"\t"+SEAT.getSeatShow();
 	}

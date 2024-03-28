@@ -123,6 +123,18 @@ public class Register extends JFrame {
 		btnConfirm.setBounds(170, 155, 117, 25);
 		contentPane.add(btnConfirm);
 		
+		JButton btnBack = new JButton("Back");
+		btnBack.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//go to Login Frame
+				dispose();
+				Login login = new Login();
+				login.getFrame().setVisible(true);
+			}
+		});
+		btnBack.setBounds(12, 28, 117, 25);
+		contentPane.add(btnBack);
+		
 	}
 
 }

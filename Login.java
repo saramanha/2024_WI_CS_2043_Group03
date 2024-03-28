@@ -45,6 +45,10 @@ public class Login {
 	public JFrame getFrame() {
 		return frame;
 	}
+	
+	public User getInUse() {
+		return inUse;
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
@@ -121,7 +125,10 @@ public class Login {
 				}
 				else {
 					if (inUse.checkPassword(password)) {
-						//go to Select Movie Frame
+						//go to Option Frame
+						frame.dispose();
+						Option option = new Option(inUse);
+						option.setVisible(true);
 					}
 					else {
 						feedbackText.setText("Incorrect password. Please try again.");
