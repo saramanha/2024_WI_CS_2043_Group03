@@ -41,9 +41,7 @@ public class Ticket {
 	}
 	
 	public String printDetail() {
-		String output = "\tMovie: "+MOVIE.getTitle()+"\n\tDate: "+DatePrint.getDateString(SEAT.getDate())+
-				"\tTime: "+DatePrint.getTimeString(SEAT.getTime())+"\n\tScreen: "+SEAT.getScreenId()+
-				"\n\tSeat: "+SEAT.getSeatId()+"\n\tDetail: "+MOVIE.getDescription();
+		String output = "\tMovie: "+MOVIE.getTitle()+"\n"+SEAT.displayInTicket()+"\n\tDetail: "+MOVIE.getDescription();
 		return output;
 	}
 	

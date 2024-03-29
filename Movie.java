@@ -41,7 +41,7 @@ public class Movie {
 		return TITLE+"\tGener: "+genre+"\tLanguage: "+language+"\tRelease Date: "+DatePrint.getDateString(released);
 	}
 	
-	public String printInfo() {
+	public String displayInfo() {
 		return "Title: "+TITLE+"\nGenre: "+genre+"\nLanguage: "+language+"\nDescription:"+description;
 	}
 	

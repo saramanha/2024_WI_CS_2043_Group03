@@ -21,7 +21,22 @@ public class WriteOutput {
 	
 	public static void addUser(User user) throws IOException, ClassNotFoundException {
 		ArrayList<User> users = ReadInput.userList();
-		users.add(user);
+		boolean isUpdated = false;
+		int index = 0;
+		for (int i=0; i<users.size(); i++) {
+			if (users.get(i).getUserId()==user.getUserId()) {
+				index = i;
+				isUpdated = true;
+				break;
+			}
+		}
+		if (isUpdated) {
+			users.remove(index);
+			users.add(index, user);
+		}
+		else {
+			users.add(user);
+		}
 		users.add(0, dummy);
 		String filePath = directory+"user_list.dat";
 		FileOutputStream fileOut = new FileOutputStream(filePath);

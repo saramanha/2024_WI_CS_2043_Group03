@@ -84,6 +84,12 @@ public class Seat {
 		return "Seat: "+SEAT_ID+"\tType: "+seatType+"\tHolder: "+holderText+"\tPrice: "+getTotalPrice();
 	}
 	
+	public String displayInTicket() {
+		String output = "\tDate: "+DatePrint.getDateString(date)+"\tTime: "+DatePrint.getTimeString(time)+
+				"\n\tScreen: "+screenId+"\n\tSeat: "+SEAT_ID;
+		return output;
+	}
+	
 	public String getSeatShow() {
 		return "Screen: "+screenId+"\tDate: "+DatePrint.getDateString(date)+"\tTime: "+DatePrint.getTimeString(time);
 	}

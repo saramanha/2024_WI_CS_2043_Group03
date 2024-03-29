@@ -145,7 +145,7 @@ public class ProgramServer {
 			}
 		}
 		System.out.println("The available seats are:");
-		System.out.println(selectedScreen.printAllSeat());
+		System.out.println(selectedScreen.displaySeats());
 
 		//Select seat
 		Seat selectedSeat = null;

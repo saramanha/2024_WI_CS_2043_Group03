@@ -122,7 +122,7 @@ public class SelectMovie extends JFrame {
 		//set text in now showing
 		String inNowText = "Now showing list is unavailable.";
 		if (!todayMovie.isEmpty()) {
-			inNowText = todayMovie.get(x).printInfo();
+			inNowText = todayMovie.get(x).displayInfo();
 		}
 		JTextPane nowText = new JTextPane();
 		nowText.setFont(new Font("Dialog", Font.PLAIN, 11));
@@ -135,11 +135,11 @@ public class SelectMovie extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if (x<todayMovie.size()-1) {
 					x++;
-					nowText.setText(todayMovie.get(x).printInfo());
+					nowText.setText(todayMovie.get(x).displayInfo());
 				}
 				else {
 					x = 0;
-					nowText.setText(todayMovie.get(x).printInfo());
+					nowText.setText(todayMovie.get(x).displayInfo());
 				}
 			}
 		});
@@ -194,7 +194,7 @@ public class SelectMovie extends JFrame {
 				//set text in adv ticket
 				String inAdvText = "Advance Ticket list is unavailable.";
 				if (!laterMovie.isEmpty()) {
-					inAdvText = laterMovie.get(y).printInfo();
+					inAdvText = laterMovie.get(y).displayInfo();
 				}
 				JTextPane advanceText = new JTextPane();
 				advanceText.setFont(new Font("Dialog", Font.PLAIN, 11));
@@ -207,11 +207,11 @@ public class SelectMovie extends JFrame {
 					public void actionPerformed(ActionEvent e) {
 						if (y<laterMovie.size()-1) {
 							y++;
-							advanceText.setText(laterMovie.get(y).printInfo());
+							advanceText.setText(laterMovie.get(y).displayInfo());
 						}
 						else {
 							y = 0;
-							advanceText.setText(laterMovie.get(y).printInfo());
+							advanceText.setText(laterMovie.get(y).displayInfo());
 						}
 					}
 				});

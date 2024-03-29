@@ -55,6 +55,44 @@ public class Screen {
 		return result;
 	}
 	
+	public String displaySeats() {
+		String result = "========Screen========\n\n";
+		for (int i=0; i<layout.length; i++) {
+			if (layout[i].getSeatId().charAt(0)=='F') {
+				if (layout[i].getSeatId().equals("F1")) {
+					result += "   "+layout[i-1].getSeatId().charAt(0)+": $"+layout[i-1].getTotalPrice()+"\n";
+				}
+				if (layout[i].getSeatId().charAt(1)=='3') {
+					result += " ";
+				}
+				if (layout[i].getHolder()==0) {
+					result += " ["+layout[i].getSeatId()+"]";
+				}
+				else {
+					result += " [XX]";
+				}
+				if (layout[i].getSeatId().equals("F4")) {
+					result += "   F: $"+layout[i].getTotalPrice();
+				}
+			}
+			else {
+				if ((i>0)&&(layout[i].getSeatId().charAt(0)!=layout[i-1].getSeatId().charAt(0))) {
+					result += "   "+layout[i-1].getSeatId().charAt(0)+": $"+layout[i-1].getTotalPrice()+"\n";
+				}
+				if (layout[i].getSeatId().charAt(1)=='4') {
+					result += "   ";
+				}
+				if (layout[i].getHolder()==0) {
+					result += " "+layout[i].getSeatId();
+				}
+				else {
+					result += " XX";
+				}
+			}
+		}
+		return result;
+	}
+	
 	public String printAllSeat() {
 		String result = toString()+"\n";
 		for (int i=0; i<layout.length; i++) {
