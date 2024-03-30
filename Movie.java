@@ -1,8 +1,10 @@
 package project.xyz;
 
+import java.io.Serializable;
 import java.time.*;
 
-public class Movie {
+public class Movie implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private final String TITLE;
 	private String genre;
 	private String language;

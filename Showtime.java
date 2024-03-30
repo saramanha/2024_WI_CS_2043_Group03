@@ -1,9 +1,11 @@
 package project.xyz;
 
 import java.util.*;
+import java.io.Serializable;
 import java.time.*;
 
-public class Showtime {
+public class Showtime implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private static int showtimeId = 1001;
 	private final int SHOWTIME_ID;
 	private LocalDate date;

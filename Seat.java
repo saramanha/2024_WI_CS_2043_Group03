@@ -1,8 +1,10 @@
 package project.xyz;
 
+import java.io.Serializable;
 import java.time.*;
 
-public class Seat {
+public class Seat implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private final String SEAT_ID;
 	private String seatType;
 	private double additionalPrice;

@@ -2,7 +2,6 @@ package project.xyz;
 
 import java.awt.EventQueue;
 import java.util.ArrayList;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -12,7 +11,7 @@ import javax.swing.SwingConstants;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+//import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import java.awt.Font;

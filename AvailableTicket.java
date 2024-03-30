@@ -53,6 +53,7 @@ public class AvailableTicket extends JFrame {
 		lblAvailableticket.setBounds(90, 30, 280, 20);
 		contentPane.add(lblAvailableticket);
 		
+		list = inUse.getTickets();
 		JLabel feedbackText = new JLabel();
 		feedbackText.setBounds(90, 210, 276, 15);
 		contentPane.add(feedbackText);
@@ -63,7 +64,6 @@ public class AvailableTicket extends JFrame {
 			feedbackText.setText("The number of ticket(s): "+list.size());
 		}
 		
-		list = inUse.getTickets();
 		if (!list.isEmpty()) {
 			JTextPane ticketPane = new JTextPane();
 			ticketPane.setText(list.get(i).printDetail());

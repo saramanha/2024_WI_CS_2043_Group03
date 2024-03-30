@@ -124,7 +124,7 @@ public class Login {
 					feedbackText.setText("Invalid email. Please try  again.");
 				}
 				else {
-					if (inUse.checkPassword(password)) {
+					if (inUse.checkPassword(PasswordEncryption.encryptPassword(password))) { // Bharghav
 						//go to Option Frame
 						frame.dispose();
 						Option option = new Option(inUse);

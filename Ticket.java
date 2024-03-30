@@ -1,6 +1,9 @@
 package project.xyz;
 
-public class Ticket {
+import java.io.Serializable;
+
+public class Ticket implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private static int ticketId = 101;
 	private final int TICKET_ID;
 	private final int USER_ID;

@@ -1,8 +1,10 @@
 package project.xyz;
 
+import java.io.Serializable;
 import java.time.*;
 
-public class Screen {
+public class Screen implements Serializable {
+	private static final long serialVersionUID = 1L;
 	private final int SCREEN_ID;
 	private String screenType;
 	private double basePrice;

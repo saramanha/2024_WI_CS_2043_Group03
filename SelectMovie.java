@@ -29,6 +29,7 @@ public class SelectMovie extends JFrame {
 	private int y = 0;
 	private ArrayList<Showtime> showtimeList = null;
 	private ArrayList<Movie> movieList = null;
+	private String inAdvText;
 
 	/**
 	 * Launch the application.
@@ -158,6 +159,13 @@ public class SelectMovie extends JFrame {
 		nowSelect.setBounds(350, 71, 78, 25);
 		contentPane.add(nowSelect);
 
+		inAdvText = "Please select advance booking date.";
+		JTextPane advanceText = new JTextPane();
+		advanceText.setFont(new Font("Dialog", Font.PLAIN, 11));
+		advanceText.setText(inAdvText);
+		advanceText.setBounds(12, 177, 309, 67);
+		contentPane.add(advanceText);
+		
 		Date start = new Date();
 		JSpinner spinner = new JSpinner(new SpinnerDateModel(start, null, null, Calendar.MONTH));
 		JSpinner.DateEditor editor = new JSpinner.DateEditor(spinner, "dd/MM/yy");
@@ -192,46 +200,42 @@ public class SelectMovie extends JFrame {
 				}
 				
 				//set text in adv ticket
-				String inAdvText = "Advance Ticket list is unavailable.";
+				inAdvText = "Advance Ticket list is unavailable.";
 				if (!laterMovie.isEmpty()) {
 					inAdvText = laterMovie.get(y).displayInfo();
 				}
-				JTextPane advanceText = new JTextPane();
-				advanceText.setFont(new Font("Dialog", Font.PLAIN, 11));
 				advanceText.setText(inAdvText);
-				advanceText.setBounds(12, 177, 309, 67);
-				contentPane.add(advanceText);
-				
-				JButton advNext = new JButton("Next");
-				advNext.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						if (y<laterMovie.size()-1) {
-							y++;
-							advanceText.setText(laterMovie.get(y).displayInfo());
-						}
-						else {
-							y = 0;
-							advanceText.setText(laterMovie.get(y).displayInfo());
-						}
-					}
-				});
-				advNext.setBounds(350, 219, 78, 25);
-				contentPane.add(advNext);
-				
-				JButton advSelect = new JButton("Select");
-				advSelect.addActionListener(new ActionListener() {
-					public void actionPerformed(ActionEvent e) {
-						//go to SelectShowtime Frame
-						dispose();
-						SelectShowtime selectShowtime = new SelectShowtime(inUse, laterMovie.get(y), laterList);
-						selectShowtime.setVisible(true);
-					}
-				});
-				advSelect.setBounds(350, 177, 78, 25);
-				contentPane.add(advSelect);
 			}
 		};
 		spinner.addChangeListener(spinnerChangeListener);
+		
+		JButton advNext = new JButton("Next");
+		advNext.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (y<laterMovie.size()-1) {
+					y++;
+					advanceText.setText(laterMovie.get(y).displayInfo());
+				}
+				else {
+					y = 0;
+					advanceText.setText(laterMovie.get(y).displayInfo());
+				}
+			}
+		});
+		advNext.setBounds(350, 219, 78, 25);
+		contentPane.add(advNext);
+		
+		JButton advSelect = new JButton("Select");
+		advSelect.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				//go to SelectShowtime Frame
+				dispose();
+				SelectShowtime selectShowtime = new SelectShowtime(inUse, laterMovie.get(y), laterList);
+				selectShowtime.setVisible(true);
+			}
+		});
+		advSelect.setBounds(350, 177, 78, 25);
+		contentPane.add(advSelect);
 		
 		JButton btnBack = new JButton("Back");
 		btnBack.addActionListener(new ActionListener() {

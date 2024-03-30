@@ -186,7 +186,7 @@ public class ProgramServer {
 				port = Integer.parseInt(args[0]);
 			}
 			catch(Exception e) {
-				System.err.println("Cannot use "+args[0]+" as a port number. Using default 61240.");
+				System.err.println("Cannot use "+args[0]+" as a port number. Using default 61340.");
 			}
 		}
 		try {
@@ -201,6 +201,11 @@ public class ProgramServer {
 			try {
 				Socket s=ss.accept();
 				ObjectInputStream ois = new ObjectInputStream(s.getInputStream());
+				ObjectOutputStream oos = new ObjectOutputStream(s.getOutputStream());
+				String command=(String)ois.readObject();
+				switch(command) {
+						
+				}
 			}
 			catch(Exception e) {
 				System.out.print(e);
