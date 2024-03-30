@@ -83,7 +83,7 @@ public class Register extends JFrame {
 				String email, password;
 				boolean except = true;
 				email = emailField.getText();
-				password = passwordField.getText();
+				password = encryptPassword(passwordField.getText()); // Bharghav
 				ArrayList<User> users = null;
 				try {
 					users = ReadInput.userList();
